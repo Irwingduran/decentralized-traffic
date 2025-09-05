@@ -35,12 +35,6 @@ interface PerformanceChartsProps {
 }
 
 export function PerformanceCharts({ data, currentMetrics }: PerformanceChartsProps) {
-  const safeMetrics = {
-    efficiency: currentMetrics?.efficiency ?? 85,
-    avgWaitTime: currentMetrics?.avgWaitTime ?? 12.5,
-    throughput: currentMetrics?.throughput ?? 240,
-  }
-
   const formatTime = (timestamp: number) => {
     const date = new Date(timestamp)
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
@@ -73,7 +67,7 @@ export function PerformanceCharts({ data, currentMetrics }: PerformanceChartsPro
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-muted-foreground">System Efficiency</p>
-              <p className="text-2xl font-bold">{safeMetrics.efficiency.toFixed(1)}%</p>
+              <p className="text-2xl font-bold">{currentMetrics.efficiency.toFixed(1)}%</p>
             </div>
             <div className="flex items-center gap-1">
               {efficiencyTrend > 0 ? (
@@ -93,7 +87,7 @@ export function PerformanceCharts({ data, currentMetrics }: PerformanceChartsPro
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-muted-foreground">Avg Wait Time</p>
-              <p className="text-2xl font-bold">{safeMetrics.avgWaitTime.toFixed(1)}s</p>
+              <p className="text-2xl font-bold">{currentMetrics.avgWaitTime.toFixed(1)}s</p>
             </div>
             <div className="flex items-center gap-1">
               <Activity className="w-4 h-4 text-blue-600" />
@@ -106,7 +100,7 @@ export function PerformanceCharts({ data, currentMetrics }: PerformanceChartsPro
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-muted-foreground">Throughput</p>
-              <p className="text-2xl font-bold">{safeMetrics.throughput.toFixed(0)}/min</p>
+              <p className="text-2xl font-bold">{currentMetrics.throughput.toFixed(0)}/min</p>
             </div>
             <div className="flex items-center gap-1">
               {throughputTrend > 0 ? (

@@ -329,7 +329,7 @@ export default function TrafficManagementDashboard() {
         <div className="flex items-center justify-between animate-in fade-in-0 duration-500">
           <div className="space-y-2">
             <h1 className="text-4xl font-bold text-foreground text-balance tracking-tight">
-              Decentralized Traffic Management System
+              Decentralized Traffic Management System Esto he modificado
             </h1>
             <p className="text-lg text-muted-foreground text-pretty">
               AI-powered traffic optimization through blockchain consensus
